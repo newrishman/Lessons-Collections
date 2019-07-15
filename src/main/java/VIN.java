@@ -1,5 +1,6 @@
 import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class VIN {
     public static void main(String[] args) {
@@ -14,5 +15,8 @@ public class VIN {
         VIN.add(463);
         System.out.println(VIN.isEmpty());
         VIN.contains(222);
+        Set<Integer> VIN2 = new TreeSet<>();
+        VIN2.addAll(VIN);
+        System.out.println(VIN2);
     }
 }
