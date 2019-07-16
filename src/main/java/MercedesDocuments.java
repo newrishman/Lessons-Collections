@@ -3,27 +3,17 @@ import java.util.*;
 public class MercedesDocuments {
     public static void main(String[] args) {
 
-        WIS one = new WIS(1, "Общий обзор автомобиля");
-        WIS two = new WIS(2, "Двигатель в целом");
-        WIS three = new WIS(3, "КШМ");
-        WIS four = new WIS(4, "ГРМ");
-        WIS five = new WIS(5, "Система топливных элементов");
-        WIS six = new WIS(6, "Смесеобразование");
-        WIS seven = new WIS(7, "Элекрический привод");
-        WIS eight = new WIS(7, "Элекрический привод");
-        WIS nine = new WIS(7, "Система впуска");
-
         Set<WIS> doc = new HashSet<>();
 
-        doc.add(one);
-        doc.add(two);
-        doc.add(three);
-        doc.add(four);
-        doc.add(five);
-        doc.add(six);
-        doc.add(seven);
-        doc.add(eight);
-        doc.add(nine);
+        doc.add(new WIS(1, "Общий обзор автомобиля"));
+        doc.add(new WIS(2, "Двигатель в целом"));
+        doc.add(new WIS(3, "КШМ"));
+        doc.add(new WIS(4, "ГРМ"));
+        doc.add(new WIS(5, "Система топливных элементов"));
+        doc.add(new WIS(6, "Смесеобразование"));
+        doc.add(new WIS(7, "Элекрический привод"));
+        doc.add(new WIS(7, "Элекрический привод"));
+        doc.add(new WIS(7, "Система впуска"));
 
         System.out.println(doc);
 
@@ -32,7 +22,7 @@ public class MercedesDocuments {
 
         System.out.println(doc2);
 
-                //   WTF ?! //
+
         Set<WIS> doc3 = new TreeSet<>(doc2);
 
 
@@ -40,7 +30,7 @@ public class MercedesDocuments {
 
     }
 
-    static class WIS {
+    static class WIS implements Comparable<WIS>{
         private Integer number;
         private String group;
 
@@ -73,6 +63,13 @@ public class MercedesDocuments {
                     "number=" + number +
                     ", group='" + group + '\'' +
                     '}';
+        }
+
+
+
+        @Override
+        public int compareTo(WIS o) {
+            return number - o.number;
         }
     }
 
